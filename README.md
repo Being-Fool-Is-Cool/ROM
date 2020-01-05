@@ -29,6 +29,3 @@ localhost:4200
 ```
 Edit src\app\shared\theme\conf.scss
 ```
-
-## License
-[MIT license](LICENSE)
