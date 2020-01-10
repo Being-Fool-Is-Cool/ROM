@@ -3,7 +3,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 
 const childRoutes: Routes = [
     {
-        path: 'add',
+        path: '',
         component: AddItemComponent
     }
 ];
