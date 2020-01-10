@@ -1,5 +1,10 @@
 export let MENU_ITEM = [
     {
+        path: 'item',
+        title: 'Item',
+        icon:'compass'
+    },
+    {
         path: 'index',
         title: 'Dashboard',
         icon: 'dashboard'
