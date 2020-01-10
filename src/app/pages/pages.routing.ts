@@ -11,9 +11,9 @@ export const childRoutes: Routes = [
         path: 'pages',
         component: PagesComponent,
         children: [
-            { path: '', redirectTo: 'item', pathMatch: 'full' },
+            { path: '', redirectTo: 'index', pathMatch: 'full' },
+            { path: 'index', loadChildren: './index/index.module#IndexModule' },
             { path: 'item', loadChildren: './item/item.module#ItemModule' },
-            { path: 'editor', loadChildren: './editor/editor.module#EditorModule' },
             { path: 'icon', loadChildren: './icon/icon.module#IconModule' },
             { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
             { path: 'form', loadChildren: './form/form.module#FormModule' },
