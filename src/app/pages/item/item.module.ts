@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AddItemComponent } from './add-item/add-item.component';
 import { itemRouting } from './item.routing';
 import { SelectModule } from 'ng2-select';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AddItemComponent],
@@ -11,7 +12,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     SharedModule,
     SelectModule,
-    itemRouting
+    itemRouting,
+    ReactiveFormsModule
   ]
 })
 export class ItemModule { }

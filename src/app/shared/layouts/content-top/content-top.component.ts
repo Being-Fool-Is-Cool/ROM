@@ -9,7 +9,7 @@ import { GlobalService } from '../../services/global.service';
 export class ContentTopComponent {
   routeTitle;
   constructor(public _globalService: GlobalService) {
-    this.getRouteTitle();
+    // this.getRouteTitle();
   }
 
   private getRouteTitle() {
@@ -19,17 +19,17 @@ export class ContentTopComponent {
       console.log('Error: ' + error);
     }); */
 
-    this._globalService.data$.subscribe(data => {
-      if (data.ev === 'isActived') {
-        this.routeTitle = data.value.title;
-      }
-    }, error => {
-      console.log('Error: ' + error);
-    });
+    // this._globalService.data$.subscribe(data => {
+    //   if (data.ev === 'isActived') {
+    //     this.routeTitle = data.value.title;
+    //   }
+    // }, error => {
+    //   console.log('Error: ' + error);
+    // });
   }
 
-  returnHome() {
-    //    this._globalService._isActived({ title: 'Dashboard' });
-    this._globalService.dataBusChanged('isActived', { title: 'Dashboard' });
-  }
+  // returnHome() {
+  //   //    this._globalService._isActived({ title: 'Dashboard' });
+  //   this._globalService.dataBusChanged('isActived', { title: 'Dashboard' });
+  // }
 }
