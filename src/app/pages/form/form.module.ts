@@ -21,7 +21,7 @@ import { ChildrenSelectComponent } from './components/ng2-select/children-select
         SharedModule,
         FileUploadModule,
         SelectModule,
-        routing
+        routing,
     ],
     declarations: [
         FormComponent,

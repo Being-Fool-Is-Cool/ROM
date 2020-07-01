@@ -5,9 +5,10 @@ import { itemRouting } from './item.routing';
 import { SelectModule } from 'ng2-select';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderedItemComponent } from './ordered-item/ordered-item.component';
 
 @NgModule({
-  declarations: [AddItemComponent],
+  declarations: [AddItemComponent, OrderedItemComponent],
   imports: [
     CommonModule,
     SharedModule,

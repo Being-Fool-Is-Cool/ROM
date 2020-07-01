@@ -2,7 +2,13 @@ export let MENU_ITEM = [
     {
         path: 'item',
         title: 'Item',
-        icon:'compass'
+        icon:'compass',
+        children:[
+            {
+                path:'order',
+                title: 'Ordered Item'
+            }
+        ]
     },
     {
         path: 'index',
