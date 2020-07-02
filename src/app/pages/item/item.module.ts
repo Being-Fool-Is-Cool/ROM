@@ -6,9 +6,10 @@ import { SelectModule } from 'ng2-select';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderedItemComponent } from './ordered-item/ordered-item.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 @NgModule({
-  declarations: [AddItemComponent, OrderedItemComponent],
+  declarations: [AddItemComponent, OrderedItemComponent, AddCategoryComponent],
   imports: [
     CommonModule,
     SharedModule,

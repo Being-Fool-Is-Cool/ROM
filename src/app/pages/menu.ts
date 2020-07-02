@@ -7,6 +7,14 @@ export let MENU_ITEM = [
             {
                 path:'order',
                 title: 'Ordered Item'
+            },
+            {
+                path: 'addItem',
+                title: 'Add Item'
+            },
+            {
+                path: 'addCategory',
+                title: 'Add Category'
             }
         ]
     },
