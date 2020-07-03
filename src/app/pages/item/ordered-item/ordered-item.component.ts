@@ -20,4 +20,16 @@ export class OrderedItemComponent implements OnInit {
     });
   }
 
+  onSubmitClick(){
+    let formData =this.orderTableForm.value;
+    let addReq ={
+      // name: formData.name,
+      // category: formData.category,
+      // quantity: formData.quantity,
+      // cost: formData.cost
+    };
+    console.log("OrderedItemComponent Working");
+
+  }
+
 }

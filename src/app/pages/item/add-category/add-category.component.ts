@@ -24,10 +24,7 @@ export class AddCategoryComponent implements OnInit {
   onSubmitClick(){
     let formData =this.addCategoryForm.value;
     let addReq ={
-      // name: formData.name,
-      // category: formData.category,
-      // quantity: formData.quantity,
-      // cost: formData.cost
+      category: formData.category
     };
     console.log(addReq);
 
