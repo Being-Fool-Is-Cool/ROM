@@ -37,13 +37,8 @@ export class ViewBilltoCookComponent implements OnInit {
 
   setBillToData() {
     this.default_data = [
-      // { first_name: 'Steve', last_name: 'Jobs', user_name: '@steve' },
-      // { first_name: 'Simon', last_name: 'Philips', user_name: '@simon' },
-      // { first_name: 'Jane', last_name: 'Doe', user_name: '@jane' },
-      // { first_name: 'Larry', last_name: 'Thornton', user_name: '@larry' },
-      // { first_name: 'Hiver', last_name: 'Choe', user_name: '@hiver' },
-      { orderName: 'Fish Cutlet', itemName: 'Fish Cutlet curry', itemCost: 70, itemQuantity: '250gm', orderQuantity: 2, amount: 140},
-      { orderName: 'Chicken', itemName: 'chicken curry', itemCost: 70, itemQuantity: '250gm', orderQuantity: 2, amount: 140}
+      { orderName: 'Order 1', itemName: 'Fish Cutlet curry', itemCost: 70, itemQuantity: '250gm', orderQuantity: 2, amount: 140},
+      { orderName: 'Order 2', itemName: 'chicken curry', itemCost: 70, itemQuantity: '250gm', orderQuantity: 2, amount: 140}
     ];
   }
 
