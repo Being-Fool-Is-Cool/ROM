@@ -15,6 +15,10 @@ export let MENU_ITEM = [
             {
                 path: 'addCategory',
                 title: 'Add Category'
+            },
+            {
+                path: 'viewBillToCook',
+                title: 'View Bill To Cook'
             }
         ]
     },
