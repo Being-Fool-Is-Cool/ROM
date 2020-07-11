@@ -34,6 +34,39 @@ export let MENU_ITEM = [
         ]
     },
     {
+        path: 'admin',
+        title: 'Admin',
+        icon: 'compass',
+        children: [
+            {
+                path: 'admin-dashboard',
+                title: 'Admin Dashboard'
+            }
+        ]
+    },
+    {
+        path: 'waiter',
+        title: 'Waiter',
+        icon: 'compass',
+        children: [
+            {
+                path: 'waiter-dashboard',
+                title: 'Waiter Dashboard'
+            }
+        ]
+    },
+    {
+        path: 'biller',
+        title: 'Bill',
+        icon: 'compass',
+        children: [
+            {
+                path: 'biller-dashboard',
+                title: 'Billing Dashboard'
+            }
+        ]
+    },
+    {
         path: 'index',
         title: 'Dashboard',
         icon: 'dashboard'
