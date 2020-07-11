@@ -23,6 +23,17 @@ export let MENU_ITEM = [
         ]
     },
     {
+        path: 'cook',
+        title: 'Cook',
+        icon: 'compass',
+        children: [
+            {
+                path: 'cook-dashboard',
+                title: 'Cook Dashboard'
+            }
+        ]
+    },
+    {
         path: 'index',
         title: 'Dashboard',
         icon: 'dashboard'
