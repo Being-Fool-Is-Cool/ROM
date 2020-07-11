@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-waiter-dashboard',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaiterDashboardComponent implements OnInit {
 
+  // addCategoryForm: FormGroup;
   constructor() { }
 
   ngOnInit() {

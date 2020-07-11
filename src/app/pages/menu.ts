@@ -25,7 +25,7 @@ export let MENU_ITEM = [
     {
         path: 'cook',
         title: 'Cook',
-        icon: 'compass',
+        icon: 'dashboard',
         children: [
             {
                 path: 'cook-dashboard',
@@ -36,7 +36,7 @@ export let MENU_ITEM = [
     {
         path: 'admin',
         title: 'Admin',
-        icon: 'compass',
+        icon: 'dashboard',
         children: [
             {
                 path: 'admin-dashboard',
@@ -47,7 +47,7 @@ export let MENU_ITEM = [
     {
         path: 'waiter',
         title: 'Waiter',
-        icon: 'compass',
+        icon: 'dashboard',
         children: [
             {
                 path: 'waiter-dashboard',
@@ -58,7 +58,7 @@ export let MENU_ITEM = [
     {
         path: 'biller',
         title: 'Bill',
-        icon: 'compass',
+        icon: 'dashboard',
         children: [
             {
                 path: 'biller-dashboard',
