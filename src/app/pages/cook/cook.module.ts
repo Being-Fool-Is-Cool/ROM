@@ -7,9 +7,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { cookRouting } from './cook.routing';
 import { CookDashboardComponent } from './cook-dashboard/cook-dashboard.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
-  declarations: [CookDashboardComponent],
+  declarations: [CookDashboardComponent, OrderDetailsComponent],
   imports: [
     CommonModule,
     SharedModule,
