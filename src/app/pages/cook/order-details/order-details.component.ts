@@ -32,6 +32,11 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   onStatusChangeClick(){
+    let formData =this.orderDetailsForm.value;
+    let addReq ={
+      orderStatus: formData.orderStatus
+    };
+    console.log(addReq);
     console.log('Status Changes');
   }
 
