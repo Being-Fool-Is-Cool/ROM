@@ -4,7 +4,7 @@
     <card cardTitle="Add Category">
       <form  [formGroup]="viewBillToCookForm">
         <div class="form-group">
-          <label class="control-label">Select Category</label>
+          <label class="control-label">Select Table</label>
             <ng-select [allowClear]="true" [items]="tables" (selected)="selected($event)"
             (removed)="removed($event)" (typed)="typed($event)" placeholder="No Table selected" formControlName="tableNumber">
             </ng-select>
