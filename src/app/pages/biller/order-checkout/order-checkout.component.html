@@ -1,3 +1,48 @@
-<p>
-  order-checkout works!
-</p>
+<div class="col-md-10">
+  <card cardTitle="Order Details For Table 1">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Item No</th>
+          <th>Item Name</th>
+          <th>Item Quantity</th>
+          <th>Order Quantity</th>
+          <th>Item Cost</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of orderDetails;let index = index">
+          <td>{{index + 1}}</td>
+          <td>{{item.itemName}}</td>
+          <td>{{item.itemQuantity}}</td>
+          <td>{{item.orderQuantity}}</td>
+          <td>{{item.itemCost}}</td>
+          <td>{{item.amount}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </card>
+</div>
+<div class="col-md-6">
+  <card cardTitle="Checkout">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Total amount</th>
+          <th>{{totalAmount}}</th>
+          <th>
+            <div class="btn-wrap division">
+              <button type="button" class="btn btn-success btn-with-icon" (click)="onCheckoutClick()" >
+                <i class="fa fa-check fa-fw"></i>Checkout</button>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    
+  </card>
+</div>
+
