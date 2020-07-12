@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order-details',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderDetailsComponent implements OnInit {
 
-  constructor() { }
-
+  orderDetailsForm: FormGroup;
+  constructor(private fb: FormBuilder) { }
+  public orderDetails: Array<any>;
+  public status: Array<string> = ['Pending', 'Preparing', 'Prepared', 'Served'];
+  public Pending: any = 'Pending';
   ngOnInit() {
+    this.initForm();
+    this.getOrderDetails();
+  }
+  
+  initForm() {
+    this.orderDetailsForm = this.fb.group({
+      orderStatus: [null,[Validators.required]]
+    });
+  }
+
+  getOrderDetails() {
+    this.orderDetails = [
+      { orderName: 'Order 1', itemName: 'Fish Cutlet curry', itemCost: 70, itemQuantity: '250gm', orderQuantity: 2, amount: 140},
+      { orderName: 'Order 2', itemName: 'chicken curry', itemCost: 70, itemQuantity: '250gm', orderQuantity: 2, amount: 140}
+    ];
+  }
+
+  onStatusChangeClick(){
+    console.log('Status Changes');
   }
 
 }
