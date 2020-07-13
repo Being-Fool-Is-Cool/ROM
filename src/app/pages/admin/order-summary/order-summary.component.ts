@@ -11,7 +11,7 @@ export class OrderSummaryComponent implements OnInit {
   orderSummaryForm: FormGroup;
   public orderDetails: Array<any>;
   constructor(private fb: FormBuilder) { }
-
+  
   ngOnInit() {
     this.initForm();
     this.getOrderDetailsByTable('table 4');
