@@ -4,6 +4,7 @@ import { SelectModule } from 'ng2-select';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalModule } from 'ngx-modal';
 
 import { adminRouting } from './admin.routing';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -19,7 +20,8 @@ import { AdminFunctionalityComponent } from './admin-functionality/admin-functio
     NgxPaginationModule,
     FormsModule,
     SharedModule,
-    adminRouting
+    adminRouting,
+    ModalModule
   ]
 })
 export class AdminModule { }
