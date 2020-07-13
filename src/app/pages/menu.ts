@@ -41,6 +41,10 @@ export let MENU_ITEM = [
             {
                 path: 'admin-dashboard',
                 title: 'Admin Dashboard'
+            },
+            {
+                path: 'admin-function',
+                title: 'Admin Access'
             }
         ]
     },
