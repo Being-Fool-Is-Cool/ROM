@@ -16,9 +16,11 @@ export class AdminFunctionalityComponent implements OnInit {
   public tables: Array<any>;
   public items: Array<any>;
   public itemsForCategory: Array<any>;
+  public userGender: any;
+  public users: Array<any>;
 
   constructor(private fb: FormBuilder) { }
-  
+
   public value: any = {};
   public _disabledV: string = '0';
   public disabled: boolean = false;
@@ -26,40 +28,44 @@ export class AdminFunctionalityComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.initApiCall();
+    this.userGender = "male";
   }
 
   initApiCall() {
     this.getAdminAccess();
     this.getAllCategory();
     this.getAllTable();
+    this.getAllUser();
   }
   initForm() {
     this.adminFunctionForm = this.fb.group({
       category: [null],
       table: [null],
       item: [null],
-      
-    });
-
-    this.addUserForm = this.fb.group({
       name: [null],
       surname: [null],
       email: [null],
       password: [null],
-      address: [null]
+      address: [null],
+      rpassword: [null],
+      user: [null]
+    });
+
+    this.addUserForm = this.fb.group({
+
     })
   }
 
   getAdminAccess() {
     this.adminAccess = [
-    { id: 'addCat', text: 'Add Category', modal: 'addCat' },
-    { id: 'delCat', text: 'Delete Category' },
-    { id: 'addUser', text: 'Add User' },
-    { id: 'delUser', text: 'Delete User' },
-    { id: 'addTab', text: 'Add Table' },
-    { id: 'delTab', text: 'Delete Table' },
-    { id: 'addItem', text: 'Add Item' },
-    { id: 'delItem', text: 'Delete Item' }
+      { id: 'addCat', text: 'Add Category', modal: 'addCat' },
+      { id: 'delCat', text: 'Delete Category' },
+      { id: 'addUser', text: 'Add User' },
+      { id: 'delUser', text: 'Delete User' },
+      { id: 'addTab', text: 'Add Table' },
+      { id: 'delTab', text: 'Delete Table' },
+      { id: 'addItem', text: 'Add Item' },
+      { id: 'delItem', text: 'Delete Item' }
     ];
   }
   // Catergory related api start
@@ -71,14 +77,14 @@ export class AdminFunctionalityComponent implements OnInit {
       { id: 4, text: 'Snacks' },
       { id: 5, text: 'Bevrages' },
       { id: 6, text: 'Deserts' }
-      ];
+    ];
 
   }
 
   onAddCategoryClick(modal) {
-    let formData =this.adminFunctionForm.value;
-    let addReq ={
-      category: formData.table
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
+      category: formData.category
     };
     console.log(addReq);
     swal({
@@ -90,8 +96,8 @@ export class AdminFunctionalityComponent implements OnInit {
   }
 
   onDeleteCategoryClick(modal) {
-    let formData =this.adminFunctionForm.value;
-    let addReq ={
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
       category: formData.category
     };
     console.log(addReq);
@@ -113,14 +119,14 @@ export class AdminFunctionalityComponent implements OnInit {
       { id: 4, text: 'Egg Curry' },
       { id: 5, text: 'Mushroom royal' },
       { id: 6, text: 'Paneer Do Pyaza' }
-      ];
-      console.log(category);
-      console.log(this.items);
+    ];
+    console.log(category);
+    console.log(this.items);
   }
 
   onAddItemClick(modal) {
-    let formData =this.adminFunctionForm.value;
-    let addReq ={
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
       category: formData.category,
       item: formData.item
     };
@@ -139,8 +145,8 @@ export class AdminFunctionalityComponent implements OnInit {
   }
 
   onDeleteItemClick(modal) {
-    let formData =this.adminFunctionForm.value;
-    let addReq ={
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
       category: formData.category,
       item: formData.item
     };
@@ -164,13 +170,13 @@ export class AdminFunctionalityComponent implements OnInit {
       { id: 4, text: 'Table 4' },
       { id: 5, text: 'Table 5' },
       { id: 6, text: 'Table 6' }
-      ];
+    ];
 
   }
 
   onAddTableClick(modal) {
-    let formData =this.adminFunctionForm.value;
-    let addReq ={
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
       category: formData.table
     };
     console.log('Added Table: ', addReq);
@@ -183,11 +189,11 @@ export class AdminFunctionalityComponent implements OnInit {
   }
 
   onDeleteTableClick(modal) {
-    let formData =this.adminFunctionForm.value;
-    let addReq ={
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
       category: formData.table
     };
-    console.log('Deleted Table ',addReq);
+    console.log('Deleted Table ', addReq);
     swal({
       type: 'success',
       title: 'Success!',
@@ -196,6 +202,54 @@ export class AdminFunctionalityComponent implements OnInit {
     this.closeModal(modal);
   }
   //Table related api end
+
+  // User related api start
+  getAllUser() {
+    this.users = [
+      { id: 1, text: 'User 1' },
+      { id: 2, text: 'User 2' },
+      { id: 3, text: 'User 3' },
+      { id: 4, text: 'User 4' },
+      { id: 5, text: 'User 5' },
+      { id: 6, text: 'User 6' }
+    ];
+
+  }
+
+  onAddUserClick(modal) {
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
+      name: formData.name,
+      surname: formData.surname,
+      email: formData.email,
+      password: formData.password,
+      address: formData.address,
+      rpassword: formData.rpassword,
+      gender: this.userGender
+    };
+    console.log(addReq);
+    swal({
+      type: 'success',
+      title: 'Success!',
+      text: 'close it!',
+    });
+    this.closeModal(modal);
+  }
+
+  onDeleteUserClick(modal) {
+    let formData = this.adminFunctionForm.value;
+    let addReq = {
+      user: formData.user
+    };
+    console.log(addReq);
+    swal({
+      type: 'success',
+      title: 'Success!',
+      text: 'close it!',
+    });
+    this.closeModal(modal);
+  }
+  // User related api end
 
   // Modal related call start
   openModal(modal) {
@@ -228,4 +282,9 @@ export class AdminFunctionalityComponent implements OnInit {
     this.value = value;
   }
   //ng-select method end
+
+  onItemChange(value) {
+    this.userGender = value
+    console.log(this.userGender);
+  }
 }
