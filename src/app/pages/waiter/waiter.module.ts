@@ -7,9 +7,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { waiterRouting } from './waiter.routing';
 import { WaiterDashboardComponent } from './waiter-dashboard/waiter-dashboard.component';
+import { TakeOrderComponent } from './take-order/take-order.component';
 
 @NgModule({
-  declarations: [WaiterDashboardComponent],
+  declarations: [WaiterDashboardComponent, TakeOrderComponent],
   imports: [
     CommonModule,
     SelectModule,
