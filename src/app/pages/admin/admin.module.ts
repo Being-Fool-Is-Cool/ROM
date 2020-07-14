@@ -8,11 +8,10 @@ import { ModalModule } from 'ngx-modal';
 
 import { adminRouting } from './admin.routing';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { AdminFunctionalityComponent } from './admin-functionality/admin-functionality.component';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, OrderSummaryComponent, AdminFunctionalityComponent],
+  declarations: [AdminDashboardComponent, AdminFunctionalityComponent],
   imports: [
     CommonModule,
     SelectModule,

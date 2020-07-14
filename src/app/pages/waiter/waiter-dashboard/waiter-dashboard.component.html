@@ -1,23 +1,10 @@
-<p>
-  waiter-dashboard works!
-</p>
-<div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-md-6">
-    <!-- <card cardTitle="Add Category"> -->
-      <!-- <form  [formGroup]="addCategoryForm"> -->
-        <div class="grid-container">
-          <div class="grid-item">Table 1</div>
-          <div class="grid-item">Table 2</div>
-          <div class="grid-item">Table 3</div>  
-          <div class="grid-item">Table 4</div>
-          <div class="grid-item">Table 5</div>
-          <div class="grid-item">Table 6</div>  
-          <div class="grid-item">Table 7</div>
-          <div class="grid-item">Table 8</div>
-          <div class="grid-item">Table 9</div>  
-        </div>
-      <!-- </form> -->
-    <!-- </card> -->
+<div>
+  <div class="grid-container">
+    <div class="grid-item" *ngFor="let item of tables;let index = index">
+      <div>
+        <a routerLink="/pages/admin/order-summary" class="skills-tag">{{item}}</a>
+        <!-- <button class="btn btn-success" (click)="openModal(addCat)">{{item}}</button> -->
+      </div>
+    </div>
   </div>
 </div>

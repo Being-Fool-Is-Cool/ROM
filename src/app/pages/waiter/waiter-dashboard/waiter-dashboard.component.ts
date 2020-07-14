@@ -8,10 +8,23 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class WaiterDashboardComponent implements OnInit {
 
-  // addCategoryForm: FormGroup;
-  constructor() { }
+  waiterForm: FormGroup;
+  public tables: Array<any>;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.initForm();
+    this.getAllTables();
+  }
+
+  initForm() {
+    this.waiterForm = this.fb.group({
+      //
+    });
+  }
+
+  getAllTables() {
+    this.tables = ['Table1', 'Table2', 'Table3', 'Table4', 'Table5', 'Table6', 'Table7', 'Table8', 'Table1', 'Table2', 'Table3', 'Table4', 'Table5', 'Table6', 'Table7', 'Table8'];
   }
 
 }
