@@ -46,7 +46,7 @@
               <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
                 <span class="glyphicon glyphicon-trash"></span> Clear
               </button>
-              <button type="button" class="btn btn-success" [disabled]="!adminFunctionForm.valid" (click)="onAddCategoryClick(value)">
+              <button type="button" class="btn btn-success" (click)="onAddCategoryClick(addCat)">
                 <span class="glyphicon glyphicon-upload"></span> Submit
               </button>
           </modal-content>
@@ -69,7 +69,7 @@
               <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
                 <span class="glyphicon glyphicon-trash"></span> Clear
               </button>
-              <button type="button" class="btn btn-success" [disabled]="!adminFunctionForm.valid" (click)="onDeleteCategoryClick(value.text)">
+              <button type="button" class="btn btn-success" (click)="onDeleteCategoryClick(delCat)">
                 <span class="glyphicon glyphicon-upload"></span> Submit
               </button>
             </div>
@@ -123,7 +123,7 @@
             <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
               <span class="glyphicon glyphicon-trash"></span> Clear
             </button>
-            <button type="button" class="btn btn-success" (click)="onAddTableClick(value)">
+            <button type="button" class="btn btn-success" (click)="onAddTableClick(addTab)">
               <span class="glyphicon glyphicon-upload"></span> Submit
             </button>
           </modal-content>
@@ -146,7 +146,7 @@
               <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
                 <span class="glyphicon glyphicon-trash"></span> Clear
               </button>
-              <button type="button" class="btn btn-success" (click)="onDeleteTableClick(value.text)">
+              <button type="button" class="btn btn-success" (click)="onDeleteTableClick(delTab)">
                 <span class="glyphicon glyphicon-upload"></span> Submit
               </button>
             </div>
@@ -161,10 +161,22 @@
             <h3>Add Items</h3>
           </modal-header>
           <modal-content>
-            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-              Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-              Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip
-              quis cardigan american apparel, butcher voluptate nisi qui.</p>
+            <label class="control-label">Select Category</label>
+              <ng-select [allowClear]="true" [items]="category" (selected)="selected($event)"
+              (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="category">
+              </ng-select>
+              <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
+            <!-- <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+              <span class="glyphicon glyphicon-trash"></span> Clear
+            </button> -->
+            <label class="control-label">Text</label>
+            <input type="text" class="form-control" placeholder="Text Input" formControlName="item">
+            <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+              <span class="glyphicon glyphicon-trash"></span> Clear
+            </button>
+            <button type="button" class="btn btn-success" (click)="onAddItemClick(addItem)">
+              <span class="glyphicon glyphicon-upload"></span> Submit
+            </button>
           </modal-content>
           <modal-footer>
             <button class="btn btn-primary" (click)="closeModal(addItem)">close</button>
@@ -176,10 +188,20 @@
             <h3>Delete Items</h3>
           </modal-header>
           <modal-content>
-            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-              Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-              Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip
-              quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              <label class="control-label">Select Category</label>
+              <ng-select [allowClear]="true" [items]="category" (selected)="categorySelected($event)"
+              (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="category">
+              </ng-select>
+              <label class="control-label">Select Category</label>
+              <ng-select [allowClear]="true" [items]="items" (selected)="selected($event)"
+              (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="item">
+              </ng-select>
+              <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+                <span class="glyphicon glyphicon-trash"></span> Clear
+              </button>
+              <button type="button" class="btn btn-success" (click)="onDeleteItemClick(delItem)">
+                <span class="glyphicon glyphicon-upload"></span> Submit
+              </button>
           </modal-content>
           <modal-footer>
             <button class="btn btn-primary" (click)="closeModal(delItem)">close</button>

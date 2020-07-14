@@ -13,17 +13,14 @@ export class AdminFunctionalityComponent implements OnInit {
   public adminAccess: Array<any>;
   public category: Array<any>;
   public tables: Array<any>;
+  public items: Array<any>;
+  public itemsForCategory: Array<any>;
+
   constructor(private fb: FormBuilder) { }
-  public items: Array<any> = [
-    
-  ];
+  
   public value: any = {};
   public _disabledV: string = '0';
   public disabled: boolean = false;
-
-  public refreshValue(value: any): void {
-    this.value = value;
-  }
 
   ngOnInit() {
     this.initForm();
@@ -38,7 +35,8 @@ export class AdminFunctionalityComponent implements OnInit {
   initForm() {
     this.adminFunctionForm = this.fb.group({
       category: [null],
-      table: [null]
+      table: [null],
+      item: [null]
     });
   }
 
@@ -67,7 +65,7 @@ export class AdminFunctionalityComponent implements OnInit {
 
   }
 
-  onAddCategoryClick(category: any) {
+  onAddCategoryClick(modal) {
     let formData =this.adminFunctionForm.value;
     let addReq ={
       category: formData.table
@@ -78,9 +76,10 @@ export class AdminFunctionalityComponent implements OnInit {
       title: 'Success!',
       text: 'close it!',
     });
+    this.closeModal(modal);
   }
 
-  onDeleteCategoryClick(category: any) {
+  onDeleteCategoryClick(modal) {
     let formData =this.adminFunctionForm.value;
     let addReq ={
       category: formData.category
@@ -91,8 +90,59 @@ export class AdminFunctionalityComponent implements OnInit {
       title: 'Success!',
       text: 'close it!',
     });
+    this.closeModal(modal);
   }
   // Catergory related api end
+
+  //Items related api Start
+  getItemsForCategory(category: any) {
+    this.items = [
+      { id: 1, text: 'Fish Curry' },
+      { id: 2, text: 'Paneer curry' },
+      { id: 3, text: 'Veg Manchurian' },
+      { id: 4, text: 'Egg Curry' },
+      { id: 5, text: 'Mushroom royal' },
+      { id: 6, text: 'Paneer Do Pyaza' }
+      ];
+      console.log(category);
+      console.log(this.items);
+  }
+
+  onAddItemClick(modal) {
+    let formData =this.adminFunctionForm.value;
+    let addReq ={
+      category: formData.category,
+      item: formData.item
+    };
+    console.log(addReq);
+    swal({
+      type: 'success',
+      title: 'Success!',
+      text: 'close it!',
+    });
+    this.closeModal(modal);
+  }
+
+  public categorySelected(value: any): void {
+    console.log('Selected value is: ', value);
+    this.getItemsForCategory(value);
+  }
+
+  onDeleteItemClick(modal) {
+    let formData =this.adminFunctionForm.value;
+    let addReq ={
+      category: formData.category,
+      item: formData.item
+    };
+    console.log(addReq);
+    swal({
+      type: 'success',
+      title: 'Success!',
+      text: 'close it!',
+    });
+    this.closeModal(modal);
+  }
+  //Items related api end
 
   //Table related api start
 
@@ -108,7 +158,7 @@ export class AdminFunctionalityComponent implements OnInit {
 
   }
 
-  onAddTableClick(table: any) {
+  onAddTableClick(modal) {
     let formData =this.adminFunctionForm.value;
     let addReq ={
       category: formData.table
@@ -119,9 +169,10 @@ export class AdminFunctionalityComponent implements OnInit {
       title: 'Success!',
       text: 'close it!',
     });
+    this.closeModal(modal);
   }
 
-  onDeleteTableClick(table: any) {
+  onDeleteTableClick(modal) {
     let formData =this.adminFunctionForm.value;
     let addReq ={
       category: formData.table
@@ -132,6 +183,7 @@ export class AdminFunctionalityComponent implements OnInit {
       title: 'Success!',
       text: 'close it!',
     });
+    this.closeModal(modal);
   }
   //Table related api end
 
@@ -153,4 +205,17 @@ export class AdminFunctionalityComponent implements OnInit {
   }
   // Modal related call end
 
+  //ng-select methods start
+  public selected(value: any): void {
+    console.log('Selected value is: ', value);
+  }
+
+  public removed(value: any): void {
+    console.log('Removed value is: ', value);
+  }
+
+  public refreshValue(value: any): void {
+    this.value = value;
+  }
+  //ng-select method end
 }
