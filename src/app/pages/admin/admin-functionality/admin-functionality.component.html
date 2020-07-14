@@ -84,14 +84,25 @@
             <h3>Add User</h3>
           </modal-header>
           <modal-content>
-              <label class="control-label">Text</label>
-              <input type="text" class="form-control" placeholder="Enter Table Name" formControlName="category">
-              <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
-                <span class="glyphicon glyphicon-trash"></span> Clear
-              </button>
-              <button type="button" class="btn btn-success" [disabled]="!adminFunctionForm.valid" (click)="onAddTableClick(value)">
-                <span class="glyphicon glyphicon-upload"></span> Submit
-              </button>
+            <div class="col-md-12">
+              <card cardTitle="Basic Form">
+                <form class="form-group">
+                  <label class="control-label">Name</label>
+                  <input type="text" class="form-control" placeholder="Name" >
+                  <label class="control-label">Surname</label>
+                  <input type="text" class="form-control" placeholder="Surname">
+                  <label class="control-label">Email:</label>
+                  <input type="email" class="form-control" placeholder="jane.doe@example.com">
+                  <label class="control-label">Password</label>
+                  <input type="password" class="form-control" placeholder="Password">
+                  <label class="control-label">Description</label>
+                  <textarea class="form-control" placeholder="Description"></textarea>
+                  <input class="checkbox" type="checkbox" id="remember" checked>
+                  <label class="check-label" for="remember">Remember Me</label>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </card>
+            </div>
           </modal-content>
           <modal-footer>
             <button class="btn btn-primary" (click)="closeModal(addUser)">close</button>
