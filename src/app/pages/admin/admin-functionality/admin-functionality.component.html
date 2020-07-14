@@ -1,224 +1,230 @@
-<!-- <div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-md-6">
-    <card cardTitle="Add Category">
-      <form  [formGroup]="adminFunctionFormategoryForm">
-        <div class="form-group">
-          <label class="control-label">Select Category</label>
-            <ng-select [allowClear]="true" [items]="category" (selected)="selected($event)"
-            (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="category">
-            </ng-select>
-          <button type="button" class="btn btn-danger" (click)="adminFunctionFormategoryForm.reset()">
-            <span class="glyphicon glyphicon-trash"></span> Clear
-          </button>
-          <button type="button" class="btn btn-success" [disabled]="!adminFunctionFormategoryForm.valid" (click)="onSubmitClick()">
-            <span class="glyphicon glyphicon-upload"></span> Submit
-          </button>
-        </div>
-      </form>
-    </card>
-  </div>
-</div> -->
-
 <div class="row">
   <div class="col-sm-3"></div>
   <div class="col-md-6">
-      <form  [formGroup]="adminFunctionForm">
-        <card cardTitle="modal sizes">
-          <button class="btn btn-primary" (click)="openModal(addCat)">Add Category</button>
-          <button class="btn btn-primary" (click)="openModal(delCat)">Delete Category</button>
-          <button class="btn btn-primary" (click)="openModal(addUser)">Add User</button>
-          <button class="btn btn-primary" (click)="openModal(delUser)">Delete User</button>
-          <button class="btn btn-primary" (click)="openModal(addTab)">Add Table</button>
-          <button class="btn btn-primary" (click)="openModal(delTab)">Delete Table</button>
-          <button class="btn btn-primary" (click)="openModal(addItem)">Add Item</button>
-          <button class="btn btn-primary" (click)="openModal(delItem)">Delete Item</button>
-        </card>
-        <p></p>
-        
-        <modal #addCat>
-          <modal-header>
-            <h3>Add Category</h3>
-          </modal-header>
-          <modal-content>
-            <label class="control-label">Text</label>
-              <input type="text" class="form-control" placeholder="Text Input" formControlName="category">
-              <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
-                <span class="glyphicon glyphicon-trash"></span> Clear
-              </button>
-              <button type="button" class="btn btn-success" (click)="onAddCategoryClick(addCat)">
-                <span class="glyphicon glyphicon-upload"></span> Submit
-              </button>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(addCat)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #delCat>
-          <modal-header>
-            <h3>Delete Category</h3>
-          </modal-header>
-          <modal-content>
-            <div class="form-group">
-              <label class="control-label">Select Category</label>
-                <ng-select [allowClear]="true" [items]="category" (selected)="selected($event)"
-                (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="category">
-                </ng-select>
-              <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
-              <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
-                <span class="glyphicon glyphicon-trash"></span> Clear
-              </button>
-              <button type="button" class="btn btn-success" (click)="onDeleteCategoryClick(delCat)">
-                <span class="glyphicon glyphicon-upload"></span> Submit
-              </button>
-            </div>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(delCat)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #addUser>
-          <modal-header>
-            <h3>Add User</h3>
-          </modal-header>
-          <modal-content>
-            <div class="col-md-12">
-              <card cardTitle="Basic Form">
-                <form class="form-group">
-                  <label class="control-label">Name</label>
-                  <input type="text" class="form-control" placeholder="Name" >
-                  <label class="control-label">Surname</label>
-                  <input type="text" class="form-control" placeholder="Surname">
-                  <label class="control-label">Email:</label>
-                  <input type="email" class="form-control" placeholder="jane.doe@example.com">
-                  <label class="control-label">Password</label>
-                  <input type="password" class="form-control" placeholder="Password">
-                  <label class="control-label">Description</label>
-                  <textarea class="form-control" placeholder="Description"></textarea>
-                  <input class="checkbox" type="checkbox" id="remember" checked>
-                  <label class="check-label" for="remember">Remember Me</label>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-              </card>
-            </div>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(addUser)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #delUser>
-          <modal-header>
-            <h3>Delete user</h3>
-          </modal-header>
-          <modal-content>
-            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-              Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-              Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip
-              quis cardigan american apparel, butcher voluptate nisi qui.</p>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(delUser)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #addTab>
-          <modal-header>
-            <h3>Add Table</h3>
-          </modal-header>
-          <modal-content>
-            <label class="control-label">Text</label>
-            <input type="text" class="form-control" placeholder="Text Input" formControlName="table">
+    <form [formGroup]="adminFunctionForm">
+      <card cardTitle="modal sizes">
+        <button class="btn btn-primary" (click)="openModal(addCat)">Add Category</button>
+        <button class="btn btn-primary" (click)="openModal(delCat)">Delete Category</button>
+        <button class="btn btn-primary" (click)="openModal(addUser)">Add User</button>
+        <button class="btn btn-primary" (click)="openModal(delUser)">Delete User</button>
+        <button class="btn btn-primary" (click)="openModal(addTab)">Add Table</button>
+        <button class="btn btn-primary" (click)="openModal(delTab)">Delete Table</button>
+        <button class="btn btn-primary" (click)="openModal(addItem)">Add Item</button>
+        <button class="btn btn-primary" (click)="openModal(delItem)">Delete Item</button>
+      </card>
+      <p></p>
+
+      <modal #addCat>
+        <modal-header>
+          <h3>Add Category</h3>
+        </modal-header>
+        <modal-content>
+          <label class="control-label">Text</label>
+          <input type="text" class="form-control" placeholder="Text Input" formControlName="category">
+          <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+            <span class="glyphicon glyphicon-trash"></span> Clear
+          </button>
+          <button type="button" class="btn btn-success" (click)="onAddCategoryClick(addCat)">
+            <span class="glyphicon glyphicon-upload"></span> Submit
+          </button>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(addCat)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #delCat>
+        <modal-header>
+          <h3>Delete Category</h3>
+        </modal-header>
+        <modal-content>
+          <div class="form-group">
+            <label class="control-label">Select Category</label>
+            <ng-select [allowClear]="true" [items]="category" (selected)="selected($event)" (removed)="removed($event)"
+              (typed)="typed($event)" placeholder="No category selected" formControlName="category">
+            </ng-select>
+            <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
             <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
               <span class="glyphicon glyphicon-trash"></span> Clear
             </button>
-            <button type="button" class="btn btn-success" (click)="onAddTableClick(addTab)">
+            <button type="button" class="btn btn-success" (click)="onDeleteCategoryClick(delCat)">
               <span class="glyphicon glyphicon-upload"></span> Submit
             </button>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(addTab)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #delTab>
-          <modal-header>
-            <h3>Delete Table</h3>
-          </modal-header>
-          <modal-content>
-            <div class="form-group">
-              <label class="control-label">Select Category</label>
-                <ng-select [allowClear]="true" [items]="tables" (selected)="selected($event)"
-                (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="table">
-                </ng-select>
-              <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
-              <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
-                <span class="glyphicon glyphicon-trash"></span> Clear
-              </button>
-              <button type="button" class="btn btn-success" (click)="onDeleteTableClick(delTab)">
-                <span class="glyphicon glyphicon-upload"></span> Submit
-              </button>
-            </div>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(delTab)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #addItem>
-          <modal-header>
-            <h3>Add Items</h3>
-          </modal-header>
-          <modal-content>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(delCat)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #addUser>
+        <modal-header>
+          <h3>Add User</h3>
+        </modal-header>
+        <modal-content>
+          <div class="col-md-12">
+            <card cardTitle="Basic Form">
+              <label class="control-label">Name</label>
+              <input type="text" class="form-control" placeholder="Name" formControlName="name">
+              <label class="control-label">Surname</label>
+              <input type="text" class="form-control" placeholder="Surname" formControlName="surname">
+              <label class="control-label">Email:</label>
+              <input type="email" class="form-control" placeholder="jane.doe@example.com" formControlName="email">
+
+              <label class="control-label">Address</label>
+              <textarea class="form-control" placeholder="Address" formControlName="address"></textarea>
+              <label class="control-label">Password</label>
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+              <label class="control-label">Repeat Password</label>
+              <input type="password" class="form-control" placeholder="Password" formControlName="rpassword">
+              <!-- <input class="checkbox" type="checkbox" id="remember" checked>
+                  <label class="check-label" for="remember">Remember Me</label> -->
+              <label class="control-label">Gender</label>
+
+              <div class="form-group">
+                <div class="col-md-4">
+                  <input class="radio" type="radio" id="default-radio1" name="radio" [checked]="true" value="male"
+                    (change)="onItemChange($event.target.value)">
+                  <label class="radio-label" for="default-radio1">Male</label>
+                </div>
+                <div class="col-md-4">
+                  <input class="radio" type="radio" id="default-radio2" name="radio" value="female"
+                    (change)="onItemChange($event.target.value)">
+                  <label class="radio-label" for="default-radio2">Female</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-success" (click)="onAddUserClick(addUser)">
+                  <span class="glyphicon glyphicon-upload"></span> Submit
+                </button>
+              </div>
+            </card>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(addUser)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #delUser>
+        <modal-header>
+          <h3>Delete user</h3>
+        </modal-header>
+        <modal-content>
+          <div class="form-group">
             <label class="control-label">Select Category</label>
-              <ng-select [allowClear]="true" [items]="category" (selected)="selected($event)"
-              (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="category">
-              </ng-select>
-              <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
-            <!-- <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+            <ng-select [allowClear]="true" [items]="users" (selected)="selected($event)" (removed)="removed($event)"
+              (typed)="typed($event)" placeholder="No category selected" formControlName="user">
+            </ng-select>
+            <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
+            <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+              <span class="glyphicon glyphicon-trash"></span> Clear
+            </button>
+            <button type="button" class="btn btn-success" (click)="onDeleteUserClick(delUser)">
+              <span class="glyphicon glyphicon-upload"></span> Delete User
+            </button>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(delUser)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #addTab>
+        <modal-header>
+          <h3>Add Table</h3>
+        </modal-header>
+        <modal-content>
+          <label class="control-label">Text</label>
+          <input type="text" class="form-control" placeholder="Text Input" formControlName="table">
+          <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+            <span class="glyphicon glyphicon-trash"></span> Clear
+          </button>
+          <button type="button" class="btn btn-success" (click)="onAddTableClick(addTab)">
+            <span class="glyphicon glyphicon-upload"></span> Submit
+          </button>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(addTab)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #delTab>
+        <modal-header>
+          <h3>Delete Table</h3>
+        </modal-header>
+        <modal-content>
+          <div class="form-group">
+            <label class="control-label">Select Category</label>
+            <ng-select [allowClear]="true" [items]="tables" (selected)="selected($event)" (removed)="removed($event)"
+              (typed)="typed($event)" placeholder="No category selected" formControlName="table">
+            </ng-select>
+            <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
+            <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+              <span class="glyphicon glyphicon-trash"></span> Clear
+            </button>
+            <button type="button" class="btn btn-success" (click)="onDeleteTableClick(delTab)">
+              <span class="glyphicon glyphicon-upload"></span> Submit
+            </button>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(delTab)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #addItem>
+        <modal-header>
+          <h3>Add Items</h3>
+        </modal-header>
+        <modal-content>
+          <label class="control-label">Select Category</label>
+          <ng-select [allowClear]="true" [items]="category" (selected)="selected($event)" (removed)="removed($event)"
+            (typed)="typed($event)" placeholder="No category selected" formControlName="category">
+          </ng-select>
+          <!-- &nbsp;&nbsp;<button type="submit" class="btn btn-primary">Send Invitation</button> -->
+          <!-- <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
               <span class="glyphicon glyphicon-trash"></span> Clear
             </button> -->
-            <label class="control-label">Text</label>
-            <input type="text" class="form-control" placeholder="Text Input" formControlName="item">
-            <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
-              <span class="glyphicon glyphicon-trash"></span> Clear
-            </button>
-            <button type="button" class="btn btn-success" (click)="onAddItemClick(addItem)">
-              <span class="glyphicon glyphicon-upload"></span> Submit
-            </button>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(addItem)">close</button>
-          </modal-footer>
-        </modal>
-        
-        <modal #delItem>
-          <modal-header>
-            <h3>Delete Items</h3>
-          </modal-header>
-          <modal-content>
-              <label class="control-label">Select Category</label>
-              <ng-select [allowClear]="true" [items]="category" (selected)="categorySelected($event)"
-              (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="category">
-              </ng-select>
-              <label class="control-label">Select Category</label>
-              <ng-select [allowClear]="true" [items]="items" (selected)="selected($event)"
-              (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected" formControlName="item">
-              </ng-select>
-              <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
-                <span class="glyphicon glyphicon-trash"></span> Clear
-              </button>
-              <button type="button" class="btn btn-success" (click)="onDeleteItemClick(delItem)">
-                <span class="glyphicon glyphicon-upload"></span> Submit
-              </button>
-          </modal-content>
-          <modal-footer>
-            <button class="btn btn-primary" (click)="closeModal(delItem)">close</button>
-          </modal-footer>
-        </modal>
-      </form>
+          <label class="control-label">Text</label>
+          <input type="text" class="form-control" placeholder="Text Input" formControlName="item">
+          <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+            <span class="glyphicon glyphicon-trash"></span> Clear
+          </button>
+          <button type="button" class="btn btn-success" (click)="onAddItemClick(addItem)">
+            <span class="glyphicon glyphicon-upload"></span> Submit
+          </button>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(addItem)">close</button>
+        </modal-footer>
+      </modal>
+
+      <modal #delItem>
+        <modal-header>
+          <h3>Delete Items</h3>
+        </modal-header>
+        <modal-content>
+          <label class="control-label">Select Category</label>
+          <ng-select [allowClear]="true" [items]="category" (selected)="categorySelected($event)"
+            (removed)="removed($event)" (typed)="typed($event)" placeholder="No category selected"
+            formControlName="category">
+          </ng-select>
+          <label class="control-label">Select Category</label>
+          <ng-select [allowClear]="true" [items]="items" (selected)="selected($event)" (removed)="removed($event)"
+            (typed)="typed($event)" placeholder="No category selected" formControlName="item">
+          </ng-select>
+          <button type="button" class="btn btn-danger" (click)="adminFunctionForm.reset()">
+            <span class="glyphicon glyphicon-trash"></span> Clear
+          </button>
+          <button type="button" class="btn btn-success" (click)="onDeleteItemClick(delItem)">
+            <span class="glyphicon glyphicon-upload"></span> Submit
+          </button>
+        </modal-content>
+        <modal-footer>
+          <button class="btn btn-primary" (click)="closeModal(delItem)">close</button>
+        </modal-footer>
+      </modal>
+    </form>
   </div>
 </div>
-
