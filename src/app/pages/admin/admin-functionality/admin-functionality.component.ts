@@ -10,6 +10,7 @@ import swal from 'sweetalert2';
 export class AdminFunctionalityComponent implements OnInit {
 
   adminFunctionForm: FormGroup;
+  addUserForm: FormGroup;
   public adminAccess: Array<any>;
   public category: Array<any>;
   public tables: Array<any>;
@@ -36,8 +37,17 @@ export class AdminFunctionalityComponent implements OnInit {
     this.adminFunctionForm = this.fb.group({
       category: [null],
       table: [null],
-      item: [null]
+      item: [null],
+      
     });
+
+    this.addUserForm = this.fb.group({
+      name: [null],
+      surname: [null],
+      email: [null],
+      password: [null],
+      address: [null]
+    })
   }
 
   getAdminAccess() {
