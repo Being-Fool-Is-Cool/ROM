@@ -8,13 +8,15 @@ import { SharedModule } from '../shared/shared.module';
 /* components */
 import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
         LayoutModule,
         SharedModule,
-        routing
+        routing,
+        ReactiveFormsModule
     ],
     declarations: [
         PagesComponent,
