@@ -45,6 +45,10 @@ export let MENU_ITEM = [
             {
                 path: 'admin-function',
                 title: 'Admin Access'
+            },
+            {
+                path: 'sales-history',
+                title:"Sales History Chart"
             }
         ]
     },
