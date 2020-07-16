@@ -8,7 +8,7 @@ import {GlobalService} from '../../services/global.service';
 })
 export class PagesTopComponent implements AfterViewInit {
   avatarImgSrc: string = 'assets/images/avatar.jpg';
-  userName: string = 'Bknds';
+  userName: string ;
   userPost: string = 'FrontEnd';
 
 
@@ -41,5 +41,7 @@ export class PagesTopComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.sidebarToggle = window.innerWidth >= 970;
+    this.userName = localStorage.getItem("USERNAME");
+    this.userPost = localStorage.getItem("ROLE");
   }
 }
