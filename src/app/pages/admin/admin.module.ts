@@ -9,9 +9,11 @@ import { ModalModule } from 'ngx-modal';
 import { adminRouting } from './admin.routing';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminFunctionalityComponent } from './admin-functionality/admin-functionality.component';
+import { SalesHistoryComponent } from './sales-history/sales-history.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, AdminFunctionalityComponent],
+  declarations: [AdminDashboardComponent, AdminFunctionalityComponent, SalesHistoryComponent],
   imports: [
     CommonModule,
     SelectModule,
@@ -20,6 +22,7 @@ import { AdminFunctionalityComponent } from './admin-functionality/admin-functio
     FormsModule,
     SharedModule,
     adminRouting,
+    NgxEchartsModule,
     ModalModule
   ]
 })
