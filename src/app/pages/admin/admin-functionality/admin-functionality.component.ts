@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-functionality',
@@ -19,7 +20,7 @@ export class AdminFunctionalityComponent implements OnInit {
   public userGender: any;
   public users: Array<any>;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private adminService: AdminService) { }
 
   public value: any = {};
   public _disabledV: string = '0';

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CookService } from '../cook.service';
 
 @Component({
   selector: 'app-order-details',
@@ -9,10 +10,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class OrderDetailsComponent implements OnInit {
 
   orderDetailsForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
   public orderDetails: Array<any>;
   public status: Array<string> = ['Pending', 'Preparing', 'Prepared', 'Served'];
   public Pending: any = 'Pending';
+  
+  constructor(private fb: FormBuilder, private cookService: CookService) { }
+  
   ngOnInit() {
     this.initForm();
     this.getOrderDetails();

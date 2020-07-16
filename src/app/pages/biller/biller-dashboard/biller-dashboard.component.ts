@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from '../../login/login.service';
+import { BillerService } from '../biller.service';
 
 @Component({
   selector: 'app-biller-dashboard',
@@ -11,7 +12,7 @@ export class BillerDashboardComponent implements OnInit {
 
   billerDashboardForm: FormGroup;
   public allTabledetails: Array<any>;
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(private fb: FormBuilder, private loginService: LoginService, private billerService: BillerService) { }
 
   ngOnInit() {
     this.initForm();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { BillerService } from '../biller.service';
 
 @Component({
   selector: 'app-order-checkout',
@@ -10,7 +11,7 @@ export class OrderCheckoutComponent implements OnInit {
 
   orderCheckoutForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private billerService: BillerService) { }
   public orderDetails: Array<any>;
   public totalAmount: number;
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { WaiterService } from '../waiter.service';
 
 @Component({
   selector: 'app-waiter-dashboard',
@@ -10,7 +11,8 @@ export class WaiterDashboardComponent implements OnInit {
 
   waiterForm: FormGroup;
   public tables: Array<any>;
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder, private waiterService: WaiterService) { }
 
   ngOnInit() {
     this.initForm();

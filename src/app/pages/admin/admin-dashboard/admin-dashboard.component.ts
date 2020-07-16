@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import swal from 'sweetalert2';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,7 +11,7 @@ import swal from 'sweetalert2';
 export class AdminDashboardComponent implements OnInit {
 
   adminForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private adminService: AdminService) { }
   public tables: Array<string>;
   public orderDetails: Array<any>;
   ngOnInit() {

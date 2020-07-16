@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CookService } from '../cook.service';
 
 // enum OrderStatus { Pending = 'pending', Preparing = 'preparing', Prepared = 'prepared', Served = 'served'}
 enum OrderStatus { Pending , Preparing, Prepared, Served}
@@ -12,7 +13,7 @@ enum OrderStatus { Pending , Preparing, Prepared, Served}
 export class CookDashboardComponent implements OnInit {
 
   cookDashboardForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private cookService: CookService) { }
   public tables: Array<any>;
   public tableOrderDetails: Array<any>;
   public allTabledetails: Array<any>;
