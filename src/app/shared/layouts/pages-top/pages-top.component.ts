@@ -7,7 +7,7 @@ import {GlobalService} from '../../services/global.service';
   styleUrls: ['./pages-top.component.scss'],
 })
 export class PagesTopComponent implements AfterViewInit {
-  avatarImgSrc: string = 'assets/images/avatar.jpg';
+  avatarImgSrc: string;
   userName: string ;
   userPost: string = 'FrontEnd';
 
@@ -43,5 +43,6 @@ export class PagesTopComponent implements AfterViewInit {
     this.sidebarToggle = window.innerWidth >= 970;
     this.userName = localStorage.getItem("USERNAME");
     this.userPost = localStorage.getItem("ROLE");
+    this.avatarImgSrc = localStorage.getItem("IMAGE");
   }
 }
