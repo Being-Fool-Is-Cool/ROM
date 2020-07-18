@@ -11,9 +11,10 @@ import { AdminService } from '../admin.service';
 export class AdminDashboardComponent implements OnInit {
 
   adminForm: FormGroup;
-  constructor(private fb: FormBuilder, private adminService: AdminService) { }
-  public tables: Array<string>;
+  constructor(private fb: FormBuilder, private _adminService: AdminService) { }
+  public tables: any = [];
   public orderDetails: Array<any>;
+  public classCondition: Boolean = false;
   ngOnInit() {
     this.initForm();
     this.getAllTables();
@@ -35,7 +36,16 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   getAllTables() {
-    this.tables = ['Table1', 'Table2', 'Table3', 'Table4', 'Table5', 'Table6', 'Table7', 'Table8', 'Table1', 'Table2', 'Table3', 'Table4', 'Table5', 'Table6', 'Table7', 'Table8'];
+    this._adminService.getAllTableDetail().subscribe(
+      data => {
+        console.log(data);
+        for (const table of (data as any)) {
+          this.tables.push(table);
+        }
+        console.log(this.tables);
+      }
+    );
+    console.log(this.tables);
   }
 
   openModal(modal) {

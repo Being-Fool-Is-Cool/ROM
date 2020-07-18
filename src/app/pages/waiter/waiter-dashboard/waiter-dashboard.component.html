@@ -2,8 +2,10 @@
   <div class="grid-container">
     <div class="grid-item" *ngFor="let item of tables;let index = index">
       <div>
-        <a routerLink="/pages/waiter/take-order" class="skills-tag">{{item}}</a>
+        <!-- <a routerLink="/pages/waiter/take-order" class="skills-tag">{{item}}</a> -->
         <!-- <button class="btn btn-success" (click)="openModal(addCat)">{{item}}</button> -->
+        <button *ngIf="item.status ==='AVAILABLE'"  class="btn btn-success" routerLink="/pages/waiter/take-order">{{item.tableName}}</button>
+        <button *ngIf="item.status ==='OCCUPIED'" class="btn btn-danger" routerLink="/pages/waiter/take-order">{{item.tableName}}</button>
       </div>
     </div>
   </div>

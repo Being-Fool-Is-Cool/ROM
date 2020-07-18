@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         LayoutModule,
         SharedModule,
         routing,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     declarations: [
         PagesComponent,

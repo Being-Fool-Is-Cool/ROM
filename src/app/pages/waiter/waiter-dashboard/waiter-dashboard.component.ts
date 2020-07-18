@@ -10,9 +10,9 @@ import { WaiterService } from '../waiter.service';
 export class WaiterDashboardComponent implements OnInit {
 
   waiterForm: FormGroup;
-  public tables: Array<any>;
+  public tables: any = [];
 
-  constructor(private fb: FormBuilder, private waiterService: WaiterService) { }
+  constructor(private fb: FormBuilder, private _waiterService: WaiterService) { }
 
   ngOnInit() {
     this.initForm();
@@ -26,7 +26,16 @@ export class WaiterDashboardComponent implements OnInit {
   }
 
   getAllTables() {
-    this.tables = ['Table1', 'Table2', 'Table3', 'Table4', 'Table5', 'Table6', 'Table7', 'Table8', 'Table1', 'Table2', 'Table3', 'Table4', 'Table5', 'Table6', 'Table7', 'Table8'];
+    this._waiterService.getAllTableDetail().subscribe(
+      data => {
+        console.log(data);
+        for (const table of (data as any)) {
+          this.tables.push(table);
+        }
+        console.log(this.tables);
+      }
+    );
+    console.log(this.tables);
   }
 
 }
