@@ -4,8 +4,8 @@
       <div>
         <!-- <a routerLink="/pages/admin/order-summary" class="skills-tag">{{item}}</a> -->
         <!-- <button class="btn btn-success" (click)="openModal(addCat)">{{item}}</button> status-->
-        <button *ngIf="item.status ==='AVAILABLE'"  class="btn btn-success" (click)="openModal(addCat)">{{item.tableName}}</button>
-        <button *ngIf="item.status ==='OCCUPIED'" class="btn btn-danger" (click)="openModal(addCat)">{{item.tableName}}</button>
+        <button *ngIf="item.status ==='AVAILABLE'" [disabled]="true" class="btn btn-success" (click)="openModal(addCat, item)">{{item.tableName}}</button>
+        <button *ngIf="item.status ==='OCCUPIED'" class="btn btn-danger" (click)="openModal(addCat, item)">{{item.tableName}}</button>
       </div>
     </div>
     <modal #addCat>

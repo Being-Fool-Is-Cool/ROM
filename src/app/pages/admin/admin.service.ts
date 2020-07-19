@@ -19,4 +19,12 @@ export class AdminService {
   getAllTableDetail() {
     return this.http.get(this.localUrl + "/table");
   }
+
+  getAllCategory() {
+    return this.http.get(this.localUrl + "/category");
+  }
+
+  getOrderByTable(tableId: any) {
+    return this.http.get(this.localUrl + "/order/table?tableId=" + tableId);
+  }
 }
