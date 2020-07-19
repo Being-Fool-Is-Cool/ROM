@@ -1,8 +1,13 @@
+
+
+<button  class="btn btn-primary" onclick="history.back()">Go Back</button>
 <div>
   <div class="grid-container">
     <div class="grid-item" *ngFor="let item of tables;let index = index">
       <div>
-        <a routerLink="/pages/waiter/take-order" class="skills-tag">{{item}}</a>
+        <button class="btn btn-success"><a routerLink="/pages/waiter/take-order" class="skills-tag" style="
+          color: white;
+      ">{{item}}</a></button>
         <!-- <button class="btn btn-success" (click)="openModal(addCat)">{{item}}</button> -->
       </div>
     </div>
