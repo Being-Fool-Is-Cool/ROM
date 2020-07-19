@@ -13,23 +13,23 @@ export class AdminFunctionalityComponent implements OnInit {
   adminFunctionForm: FormGroup;
   addUserForm: FormGroup;
   public adminAccess: Array<any>;
-  public category: Array<any>;
-  public tables: Array<any>;
+  public category:  any = [];
+  public tables: any = [];
   public items: Array<any>;
   public itemsForCategory: Array<any>;
   public userGender: any;
   public users: Array<any>;
 
-  constructor(private fb: FormBuilder, private adminService: AdminService) { }
+  constructor(private fb: FormBuilder, private _adminService: AdminService) { }
 
   public value: any = {};
   public _disabledV: string = '0';
   public disabled: boolean = false;
 
   ngOnInit() {
-    this.initForm();
     this.initApiCall();
     this.userGender = "male";
+    this.initForm();
   }
 
   initApiCall() {
@@ -79,7 +79,17 @@ export class AdminFunctionalityComponent implements OnInit {
       { id: 5, text: 'Bevrages' },
       { id: 6, text: 'Deserts' }
     ];
-
+    this.category.push({ id: 8, text: 'Amrita' })
+    console.log(this.category[4]);
+    this._adminService.getAllCategory().subscribe(
+      data => {
+        // this.category = data;
+        for (const cat of (data as any)) {
+          this.category.push(cat);
+        }
+        console.log(this.category);
+      }
+    ); 
   }
 
   onAddCategoryClick(modal) {
@@ -101,7 +111,7 @@ export class AdminFunctionalityComponent implements OnInit {
     let addReq = {
       category: formData.category
     };
-    console.log(addReq);
+    console.log('Deleted Category ', addReq);
     swal({
       type: 'success',
       title: 'Success!',
@@ -164,14 +174,16 @@ export class AdminFunctionalityComponent implements OnInit {
   //Table related api start
 
   getAllTable() {
-    this.tables = [
-      { id: 1, text: 'Table 1' },
-      { id: 2, text: 'Table 2' },
-      { id: 3, text: 'Table 3' },
-      { id: 4, text: 'Table 4' },
-      { id: 5, text: 'Table 5' },
-      { id: 6, text: 'Table 6' }
-    ];
+    this._adminService.getAllTableDetail().subscribe(
+      data => {
+        // this.category = data;
+        for (const table of (data as any)) {
+          this.tables.push(table);   
+        }
+        console.log(this.tables);
+      }
+    );
+    console.log(this.tables);
 
   }
 
@@ -192,7 +204,7 @@ export class AdminFunctionalityComponent implements OnInit {
   onDeleteTableClick(modal) {
     let formData = this.adminFunctionForm.value;
     let addReq = {
-      category: formData.table
+      table: formData.table
     };
     console.log('Deleted Table ', addReq);
     swal({
