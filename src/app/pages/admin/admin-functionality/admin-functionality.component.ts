@@ -20,7 +20,10 @@ export class AdminFunctionalityComponent implements OnInit {
   public userGender: any;
   public users: Array<any>;
 
-  constructor(private fb: FormBuilder, private _adminService: AdminService) { }
+  constructor(private fb: FormBuilder, private _adminService: AdminService) {
+    this.category = new Array();
+    this.tables = new Array();
+   }
 
   public value: any = {};
   public _disabledV: string = '0';
@@ -71,22 +74,22 @@ export class AdminFunctionalityComponent implements OnInit {
   }
   // Catergory related api start
   getAllCategory() {
-    this.category = [
-      { id: 1, text: 'BreakFast' },
-      { id: 2, text: 'Lunch' },
-      { id: 3, text: 'Dinner' },
-      { id: 4, text: 'Snacks' },
-      { id: 5, text: 'Bevrages' },
-      { id: 6, text: 'Deserts' }
-    ];
-    this.category.push({ id: 8, text: 'Amrita' })
+    // this.category = [
+    //   { id: 1, text: 'BreakFast' },
+    //   { id: 2, text: 'Lunch' },
+    //   { id: 3, text: 'Dinner' },
+    //   { id: 4, text: 'Snacks' },
+    //   { id: 5, text: 'Bevrages' },
+    //   { id: 6, text: 'Deserts' }
+    // ];
+    // this.category.push({ id: 8, text: 'Amrita' })
     console.log(this.category[4]);
     this._adminService.getAllCategory().subscribe(
       data => {
-        // this.category = data;
-        for (const cat of (data as any)) {
-          this.category.push(cat);
-        }
+        this.category = data;
+        // for (const cat of (data as any)) {
+        //   this.category.push(cat);
+        // }
         console.log(this.category);
       }
     ); 
@@ -118,6 +121,10 @@ export class AdminFunctionalityComponent implements OnInit {
       text: 'close it!',
     });
     this.closeModal(modal);
+  }
+
+  onCategorySelectvalue(value: any): void {
+    console.log(value);
   }
   // Catergory related api end
 
@@ -176,10 +183,7 @@ export class AdminFunctionalityComponent implements OnInit {
   getAllTable() {
     this._adminService.getAllTableDetail().subscribe(
       data => {
-        // this.category = data;
-        for (const table of (data as any)) {
-          this.tables.push(table);   
-        }
+        this.tables = data;
         console.log(this.tables);
       }
     );
@@ -213,6 +217,10 @@ export class AdminFunctionalityComponent implements OnInit {
       text: 'close it!',
     });
     this.closeModal(modal);
+  }
+
+  onTableSelect(value: any): void {
+    console.log(value);
   }
   //Table related api end
 

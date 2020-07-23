@@ -13,10 +13,10 @@ enum OrderStatus { Pending , Preparing, Prepared, Served}
 export class CookDashboardComponent implements OnInit {
 
   cookDashboardForm: FormGroup;
-  public allTabledetails: Array<any>;
+  public allTabledetails: Array<any> = [];
   orderStatus = OrderStatus;
 
-  constructor(private fb: FormBuilder, private cookService: CookService) { }
+  constructor(private fb: FormBuilder, private _cookService: CookService) { }
   
   ngOnInit() {
     // this.initForm();
@@ -30,10 +30,19 @@ export class CookDashboardComponent implements OnInit {
   }
 
   getAllTableDetails() {
-    this.allTabledetails = [
-      { tableNo: 'Table 1', orderName: 'Order 1', itemNames: 'Fish Cutlet curry',  amount: 140, itemQuantity: 'Half', status: 'PENDING'},
-      { tableNo: 'Table 5', orderName: 'Order 2', itemNames: 'chicken curry', amount: 140, itemQuantity: 'Quart', status: 'PENDING'}
-    ];
-  }
+    // this.allTabledetails = [
+    //   { tableNo: 'Table 1', orderName: 'Order 1', itemNames: 'Fish Cutlet curry',  amount: 140, itemQuantity: 'Half', status: 'PENDING'},
+    //   { tableNo: 'Table 5', orderName: 'Order 2', itemNames: 'chicken curry', amount: 140, itemQuantity: 'Quart', status: 'PENDING'}
+    // ];
 
+    this._cookService.getAllOrders().subscribe(
+      data => {
+        for (const cat of (data as any)) {
+          this.allTabledetails.push(cat);
+        }
+        console.log(this.allTabledetails);
+      }
+    )
+  }
+  
 }

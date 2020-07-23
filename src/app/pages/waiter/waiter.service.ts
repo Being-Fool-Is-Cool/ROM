@@ -19,4 +19,8 @@ export class WaiterService {
    getAllTableDetail() {
     return this.http.get(this.localUrl + "/table");
   }
+
+  getAllItemsDetails() {
+    return this.http.get(this.localUrl + '/item');
+  }
 }

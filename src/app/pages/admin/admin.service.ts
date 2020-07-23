@@ -21,10 +21,10 @@ export class AdminService {
   }
 
   getAllCategory() {
-    return this.http.get(this.localUrl + "/category");
+    return this.http.get<any>(this.localUrl + "/category");
   }
 
   getOrderByTable(tableId: any) {
-    return this.http.get(this.localUrl + "/order/table?tableId=" + tableId);
+    return this.http.get<any>(this.localUrl + "/order/table?tableId=" + tableId);
   }
 }

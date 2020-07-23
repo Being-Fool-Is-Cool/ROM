@@ -1,3 +1,33 @@
-<p>
-  take-order works!
-</p>
+<div class="col-md-12">
+  <div class="col-sm-3"></div>
+  <card cardTitle="Order Details For Table 1">
+    <input class="col-sm-2" type="text" id="myInput" (keyup)="autoSearchFunction($event.target.value)" placeholder="Search for names.." title="Type in a name">
+    <table id="myTable" class="table table-bordered table-hover">
+        <tr>
+          <th>Sr No</th >
+          <th>Name</th>
+          <th>Category</th>
+          <th>Item Quantity</th>
+          <th>Price</th>
+          <th>Count</th>
+        </tr>
+        <tr *ngFor="let item of allItemDetails;let index = index">
+          <td style="text-align: left;">{{index+1}}</td>
+          <td style="text-align: left;">{{item.itemName}}</td>
+          <td style="text-align: left;">{{item.categoryName}}</td>
+          <td style="text-align: left;">{{item.quantity}}</td>
+          <td style="text-align: left;">{{item.itemCost}}</td>
+          <td style="text-align: left;">
+            <div class="quantity">
+              <button class="fa fa-plus" type="button" name="button">
+              </button>
+              <input style="width: 20px;" type="text" name="name" value="1">
+              <button class="fa fa-minus" type="button" name="button">
+              </button>
+            </div>
+          </td>
+        </tr>
+      <!-- </tbody> -->
+    </table>
+  </card>
+</div>
